@@ -1,0 +1,24 @@
+{
+    "name": "Kali_Linux",
+    "description": "Kali Linux Docker NoVNC, refer readme for more info.",
+    "repository": "https://github.com/githubmikail/Kali-Linux-Docker-Novnc-On-Heroku.git",
+    "logo": "https://imgr.search.brave.com/3V2JdgoM2dz3gMTZuB_QyexdYtjV5z9MZXNTnb21T4c/fit/474/225/no/1/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4w/ZlNQSEFCWENTM0FB/b2xLVEQ1UUhBSGFI/YSZwaWQ9QXBp",
+    "keywords": ["docker","kali", "vscode", "novnc", "firefox", "brave", "fluxbox", "linux", "remote", "ssh", "vnc", "linux"],
+    "stack": "container",
+    "env": {
+      "VNC_TITLE" : {
+        "description": "VNC Session Title, w/o spaces.",
+	      "value" : "Kali_Linux",
+        "required" : true
+      } ,
+      "VNC_PASS": {
+        "description": "VNC server password w/o spaces.",
+        "required" : true
+      },
+      "VNC_RESOLUTION" : {
+        "description": "VNC Server Resolution in WxH, 720p is preferrable.",
+		"value" : "1280x720",
+        "required" : true
+        }
+    } 
+  }
