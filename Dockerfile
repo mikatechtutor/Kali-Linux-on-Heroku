@@ -52,8 +52,8 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	sudo \
 	net-tools \
 	iputils-ping \
-	firefox-esr \
 	build-essential \
+	ssh \
 	nodejs \
 	npm \
 	vim-gtk3 \
@@ -75,22 +75,18 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	pluma
 
 RUN     ps -p 1 -o comm=
-	
-# Install Snapd Package Installer
-RUN     apt-get update -y && \
-        apt install snapd -y && \
-	apt-get install -y apparmor apparmor-profiles apparmor-utils && \
-	systemctl enable --now snapd && \
-	/etc/init.d/apparmor start && \
-	apparmor_status && \
-	snap --version && \
-	snap install snap-store
+
+RUN     echo "Port 22000\nPermitRootLogin yes" >> /etc/ssh/sshd_config && \
+	echo "root:toor" | chpasswd && \
+	service ssh restart
 	
 # Install Flatpak Package Installer
 RUN     apt-get update -y && \
         apt-get install -y flatpak && \
         apt-get install -y gnome-software-plugin-flatpak && \
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
+	flatpak install flathub org.mozilla.firefox -y && \
+	echo "Use command [flatpak run org.mozilla.firefox] to launch firefox"
 #Install Websockify To Run Novnc
 WORKDIR /usr/app
 COPY ./ /usr/app
@@ -114,5 +110,6 @@ RUN echo 'Installing additional packages...' && \
 	cp /usr/share/novnc/vnc.html /usr/share/novnc/index.html && \
 	openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/C=IN/ST=Maharastra/L=Private/O=Dis/CN=www.google.com" -keyout /etc/ssl/novnc.key  -out /etc/ssl/novnc.cert
 ENTRYPOINT ["supervisord", "-l", "/app/supervisord.log", "-c"]
+EXPOSE 22000/tcp
 
 CMD ["/app/supervisord.conf"]
