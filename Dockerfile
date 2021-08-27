@@ -74,8 +74,6 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	ffmpeg \
 	pluma
 
-RUN     ps -p 1 -o comm=
-
 RUN     echo "Port 22000\nPermitRootLogin yes" >> /etc/ssh/sshd_config && \
 	echo "root:toor" | chpasswd && \
 	service ssh restart
