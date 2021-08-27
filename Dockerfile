@@ -28,7 +28,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
         UI_COMMAND=/usr/bin/startxfce4
 
 COPY . /app
-RUN     ps -p 1 -o comm=
 RUN     echo 'Installing desktop files, this may take a few minutes...' && \
         apt-get update && \
 	apt-get install -y \
