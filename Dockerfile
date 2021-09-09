@@ -51,6 +51,7 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	sudo \
 	net-tools \
 	iputils-ping \
+	firefox-esr \
 	build-essential \
 	ssh \
 	nodejs \
@@ -77,13 +78,6 @@ RUN     echo "Port 22000\nPermitRootLogin yes" >> /etc/ssh/sshd_config && \
 	echo "root:toor" | chpasswd && \
 	service ssh restart
 	
-# Install Flatpak Package Installer
-RUN     apt-get update -y && \
-        apt-get install -y flatpak && \
-        apt-get install -y gnome-software-plugin-flatpak && \
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
-	flatpak install flathub org.mozilla.firefox -y && \
-	echo "Use command [flatpak run org.mozilla.firefox] to launch firefox"
 #Install Websockify To Run Novnc
 WORKDIR /usr/app
 COPY ./ /usr/app
