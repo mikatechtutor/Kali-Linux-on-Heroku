@@ -73,10 +73,6 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	novnc \
 	ffmpeg \
 	pluma
-
-RUN     echo "Port 22000\nPermitRootLogin yes" >> /etc/ssh/sshd_config && \
-	echo "root:toor" | chpasswd && \
-	service ssh restart
 	
 #Install Websockify To Run Novnc
 WORKDIR /usr/app
