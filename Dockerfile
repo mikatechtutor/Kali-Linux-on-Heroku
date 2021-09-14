@@ -2,7 +2,7 @@ FROM kalilinux/kali
 
 LABEL AboutImage "Kali_Linux_Novnc"
 
-LABEL Maintainer "Badri Mikail <ahmadbadri177@gmail.com>"
+LABEL Maintainer "Howtotech"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
