@@ -5,4 +5,4 @@ Feel free to fork and edit for your use.
 
 # Deploying on Heroku:
 
-*dd
+* dd
