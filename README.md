@@ -1,4 +1,3 @@
-## Deploy on Heroku
 [Deploy on Heroku](http://heroku.com/deploy?template=https://github.com/howtotechtips/Kali-Linux-on-Heroku)
 
 # Kali Linux Docker with Novnc
@@ -8,4 +7,4 @@ Feel free to fork and edit for your use.
 
 # Deploying on Heroku:
 
-* Click on deploy button above
+* Click on deploy link above
