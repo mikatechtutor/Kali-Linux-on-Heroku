@@ -14,11 +14,6 @@
       "VNC_PASS": {
         "description": "VNC server password w/o spaces.",
         "required" : true
-      },
-      "VNC_RESOLUTION" : {
-        "description": "VNC Server Resolution in WxH, 720p is preferrable.",
-		"value" : "1280x720",
-        "required" : true
-        }
+      }
     } 
   }
