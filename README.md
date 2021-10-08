@@ -8,3 +8,6 @@ Feel free to fork and edit for your use.
 # Deploying on Heroku:
 
 * Click on deploy link above
+
+![](https://i.ibb.co/3zhsdsX/githubrepo.jpg)
+
